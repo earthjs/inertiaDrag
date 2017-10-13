@@ -14,31 +14,32 @@ Refelevant html & js code showed below, to illustrate how to use the inertiaDrag
 ...
 <canvas width="960" height="500"></canvas>
 <script>
-	let land;
-	const canvas = d3.select("canvas"),
-	projection = d3.geoOrthographic(),
-	context = canvas.node().getContext("2d"),
-	path = d3.geoPath().projection(projection).context(context),
-	render = function(r) {
-			r && projection.rotate(r);
-		context.clearRect(0, 0, 960, 500);
-		context.beginPath();
-		path(land);
-		context.fill();
-	};
-	// complete params: (projection, render, started, moved, ended)
-	const {start, move, end} = inertiaDrag(projection, render);
-	canvas.call(d3.zoom()
-        .on("start", start)
-        .on('zoom', move)
-        .on("end", end)
+    let land;
+    const canvas = d3.select("canvas"),
+    projection = d3.geoOrthographic(),
+    context = canvas.node().getContext("2d"),
+    path = d3.geoPath().projection(projection).context(context),
+    render = function(r) {
+        r && projection.rotate(r);
+        context.clearRect(0, 0, 960, 500);
+        context.beginPath();
+        path(land);
+        context.fill();
+    };
+    // complete params: (projection, render, started, moved, ended)
+    const {start, move, end} = inertiaDrag(projection, render);
+    canvas.call(d3.zoom()
+    .on("start", start)
+    .on('zoom', move)
+    .on("end", end)
     );
-	d3.json("d/world-110m.json", function(error, world) {
-		land = topojson.feature(world, world.objects.land);
-		render();
-	});
+    d3.json("d/world-110m.json", function(error, world) {
+        land = topojson.feature(world, world.objects.land);
+        render();
+    });
 </script>
 ```
+It create a high order object, having 3 higher order functions that can be use for **d3.zoom** or d3.drag, I my self prefer as a handle for d3.zoom as it will handle dragging and zooming out of the book.  
 
 ## License
 inertiaDrag.js is licensed under the **MIT license**. See the LICENSE file for more information.
