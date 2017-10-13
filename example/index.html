@@ -14,19 +14,19 @@
 		context = canvas.node().getContext("2d"),
 		path = d3.geoPath().projection(projection).context(context),
 		render = function(r) {
-  			r && projection.rotate(r);
+			r && projection.rotate(r);
 			context.clearRect(0, 0, 960, 500);
 			context.beginPath();
 			path(land);
 			context.fill();
 		};
-    	// complete params: (projection, render, started, moved, ended)
+		// complete params: (projection, render, started, moved, ended)
 		const {start, move, end} = inertiaDrag(projection, render);
 		canvas.call(d3.zoom()
-            .on("start", start)
-            .on('zoom', move)
-            .on("end", end)
-        );
+			.on("start", start)
+			.on('zoom', move)
+			.on("end", end)
+		);
 		d3.json("d/world-110m.json", function(error, world) {
 			land = topojson.feature(world, world.objects.land);
 			render();

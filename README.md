@@ -29,9 +29,9 @@ Relevant html & js code showed below, to illustrate how to use the inertiaDrag.j
     // complete params: (projection, render, started, moved, ended)
     const {start, move, end} = inertiaDrag(projection, render);
     canvas.call(d3.zoom()
-    .on("start", start)
-    .on('zoom', move)
-    .on("end", end)
+        .on("start", start)
+        .on('zoom', move)
+        .on("end", end)
     );
     d3.json("d/world-110m.json", function(error, world) {
         land = topojson.feature(world, world.objects.land);
