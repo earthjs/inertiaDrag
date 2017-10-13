@@ -6,7 +6,7 @@ Extracted from [earthjs - inertiaPlugin.js](https://github.com/earthjs/earthjs/b
 This is *non versor.js*, if you need versor.js based inertia drag, you can check excellent work by [@Fil](https://bl.ocks.org/Fil/f48de8e9207799017093a169031adb02/d2ecafe469595af009991176b91dac507edd8523).
 
 ## Example
-Refelevant html & js code showed below, to illustrate how to use the inertiaDrag.js
+Relevant html & js code showed below, to illustrate how to use the inertiaDrag.js
 ```html
 <script src="inertiaDrag.js"></script>
 <script src="topojson.js"></script>
@@ -39,7 +39,7 @@ Refelevant html & js code showed below, to illustrate how to use the inertiaDrag
     });
 </script>
 ```
-It create a high order object, having 3 higher order functions that can be use for **d3.zoom** or d3.drag, I my self prefer as a handle for d3.zoom as it will handle dragging and zooming out of the book.  
+It create an object, having 3 higher order functions that can be use for **d3.zoom** or d3.drag, I my self prefer as a handle for d3.zoom as it will handle dragging and zooming out of the book.  
 
 ## License
 inertiaDrag.js is licensed under the **MIT license**. See the LICENSE file for more information.
